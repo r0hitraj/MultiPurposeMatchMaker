@@ -1,0 +1,76 @@
+/*
+For demo purpose
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto|Barrio");
+body {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background: linear-gradient(to top, rgba(25, 34, 163, 0.3) 10%, rgba(201, 46, 188, 0.767) 90%, #000000 100%); 
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  -webkit-perspective: 1000;
+          perspective: 1000;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barrio', cursive;
+}
+
+.card-title {
+  max-width: 100%;
+  font-size: 4vw;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  min-width: 100%;
+  height: 38vh;
+  min-height: 38vh;
+  opacity: 0.3;
+  }
+
+.text-white .card-img {
+  -webkit-filter: brightness(75%) saturate(50%);
+          filter: brightness(75%) saturate(50%);
+}
+
+/*
+Flip card
+*/
+.card-flip {
+   border: none;
+  padding: 0;
+
+}
+.card-flip .card {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.card-flip .card:first-of-type {
+  tranform: rotateY(0deg);
+}
+.card-flip .card:last-of-type {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: flex;
+}
+.card-flip:hover .card:first-of-type {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.card-flip:hover .card:last-of-type {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}

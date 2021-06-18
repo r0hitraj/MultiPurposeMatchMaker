@@ -1,0 +1,243 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/profiles.css' %}" rel="stylesheet">
+
+    
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+<!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/index">MultiPurpose MatchMaker</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><div class="text-center">
+                           <a href="/purpose" class="nav-link js-scroll-trigger" ><b>Matches</b></a> </div> </li>
+                       <li class="nav-item"><div class="text-center">
+                           <a href="/profile" class="nav-link js-scroll-trigger"  ><b>Profile</b></a> </div> </li>
+   
+                       <li class="nav-item"><div class="text-center">
+                           <a href="/logout" class="nav-link js-scroll-trigger"  ><b>Logout</b></a> </div> </li>
+                       {% else %}
+                       <li class="nav-item"><div class="text-center">
+                           <a href="/login" class="nav-link js-scroll-trigger" ><b>Login Form</b></a> </div> </li>
+                       {% endif %}
+                       </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1 class="hero-header">Create Your Profile</h1>
+        <br>
+        <b class="hero-header container-center">*Wants To Find A Perfect Match?</b><br><br>
+        
+        <b class="hero-header container-center">You Need To Create Your Profile </b>
+
+        {% for message in messages %}
+				<h3><b>{{message}}</b> </h3>
+            {% endfor %}
+            
+	<form  method="POST">
+        {% csrf_token %}
+    <div class="container-center" >
+
+        <div class="section">
+            
+		<div class="section">
+            <div class="section-heading"><b>Profile Photo 1</div>
+					<div class="upload-btn-wrapper">
+						<button class="btn">Upload</button>	
+							<input type="file" name="profile_pic1" />
+					</div>
+			<div class="section">
+         
+                 <div class="section">
+                    <div class="section-heading"><b>Profile Photo 2</div>
+                            <div class="upload-btn-wrapper">
+                                <button class="btn">Upload</button>	
+                                    <input type="file" name="profile_pic2" />
+                            </div>
+                    <div class="section">
+        
+        <div class="section">
+            <div class="section-heading">Phone Number</div>
+            <input type="number" class="section-input" pattern=".{10,10}" placeholder="Enter your Phone Number" name='phone_no' required="10 characters PhoneNo required" ></input>
+        </div>
+
+
+
+        <div class="section-heading">Gender</div>
+        <ul class="list ">
+            <li class="list-item-inline">
+				   <input type="radio" id="radio1" name="gender" value="Male" checked>
+			   <label for="radio1">Male</label>
+            </li>
+            <li class="list-item-inline">
+				   <input type="radio" id="radio2" name="gender"value="Female">
+			   <label for="radio2">Female</label>
+            </li>
+            <li class="list-item-inline">
+				<input  type="radio" id="radio3" name="gender" value="Others">
+			   <label for="radio3">Others</label>
+            </li>
+        </ul><br>
+
+    <div>
+        <div class="section-heading"> Date Of Birth</div>
+        <ul class="list">
+            
+  <input type="date" id="birthday" name="dob" required="required">
+			
+        </ul>
+    </div>
+
+        <div class="section">
+            <div class="section-heading"><b>Passions</b></div><br>
+                <div id="y">
+                   <b>Please Select One  option From Each Section Which Best Describes You</b>
+                </div><br>
+                <br><br><b>Section-1</b><br><br>
+                {% for pass in passion %}
+                {% if forloop.counter < 12 %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion1" class="z" value="{{pass.passion_name}}"  >
+               <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+           {% endif %}
+            {% endfor %}
+            <br><br><b>Section-2</b><br><br>
+        {% for pass in passion %}
+                {% if forloop.counter >= 12 and forloop.counter < 24 %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion2" class="z" value="{{pass.passion_name}}"  >
+               <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+           {% endif %}
+            {% endfor %}
+
+            <br><br><b>Section-3</b><br><br>
+        {% for pass in passion %}
+                {% if forloop.counter >= 24 and forloop.counter < 36 %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion3" class="z" value="{{pass.passion_name}}"  >
+               <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+           {% endif %}
+            {% endfor %}
+
+            <br><br><b>Section-4</b><br><br>
+                    {% for pass in passion %}
+                    {% if forloop.counter >= 36 and forloop.counter < 48 %}
+                <input type="radio" id="{{pass.passion_name}}" name="passion4" class="z" value="{{pass.passion_name}}" >
+                <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+                 {% endif %}
+                {% endfor %}
+
+                <br><br><b>Section-5</b><br><br>
+                {% for pass in passion %}
+                {% if forloop.counter >= 48 and forloop.counter < 60 %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion5" class="z" value="{{pass.passion_name}}"  >
+            <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+             {% endif %}
+            {% endfor %}
+
+            <br><br><b>Section-6</b><br><br>
+            {% for pass in passion %}
+            {% if forloop.counter >= 60 and forloop.counter < 72 %}
+        <input type="radio" id="{{pass.passion_name}}" name="passion6" class="z" value="{{pass.passion_name}}"  >
+        <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+        {% endif %}
+        {% endfor %}
+
+        <br><br><b>Section-7</b><br><br>
+        {% for pass in passion %}
+        {% if forloop.counter >= 72 and forloop.counter < 84 %}
+        <input type="radio" id="{{pass.passion_name}}" name="passion7" class="z" value="{{pass.passion_name}}"  >
+        <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+        {% endif %}
+        {% endfor %}
+
+        <br><br><b>Section-8</b><br><br>
+        {% for pass in passion %}
+        {% if forloop.counter >= 84 and forloop.counter < 96 %}
+        <input type="radio" id="{{pass.passion_name}}" name="passion8" class="z" value="{{pass.passion_name}}"  >
+        <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+        {% endif %}
+        {% endfor %}
+
+        <br><br><b>Section-9</b><br><br>
+            {% for pass in passion %}
+            {% if forloop.counter >= 96 and forloop.counter < 108 %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion9" class="z" value="{{pass.passion_name}}"  >
+            <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+            {% endif %}
+            {% endfor %}
+
+            <br><br><b>Section-10</b><br><br>
+            {% for pass in passion %}
+            {% if forloop.counter >= 108  %}
+            <input type="radio" id="{{pass.passion_name}}" name="passion10" class="z" value="{{pass.passion_name}}"  >
+            <label for="{{pass.passion_name}}">{{pass.passion_name}}</label>
+            {% endif %}
+            {% endfor %}
+           
+    
+        </div>
+    </div>
+   
+	
+	<hr class="my-4">
+	<div class="section-heading">Optional</div>
+	
+	<div class="section">
+            <div class="section-heading">Height</div>
+				<input type="number" class="section-input" placeholder="Enter your Height in Cm" name="Height"></input>
+			</div>
+	<div class="section">
+            <div class="section-heading">Nationality</div>
+				<input type="text" class="section-input" placeholder="Enter your Nationality" name="Nationality"></input>
+			</div>
+	<div class="section">
+            <div class="section-heading">Ethnicity</div>
+				<input type="text" class="section-input" placeholder="Enter your Ethnicity" name="Ethnicity"></input>
+
+	</div>
+	<div class="section">
+            <div class="section-heading">Employment Status</div>
+				<input type="text" class="section-input" placeholder="Enter your Employment" name="Employment"></input>
+			</div>	
+			
+	<button  type="submit" class="button button5"><b>Proceed</b></button>
+	</form>	
+    <br>
+    <br>
+    <br>
+    <h3><a href='/del' >Delete Account</a></h3>
+
+    {% else %}
+         
+    <div class="container h-100 d-flex">
+        <div class="jumbotron my-auto">
+          <h1 class="display-2"> <a  href="/login" class="text-black" >Please Login</a></h1>
+          <h3>To See The Magic OF Birthday Paradox</h3>
+        </div>
+    </div>
+    {% endif %}
+
+
+</body>
+
+</html>
