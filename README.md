@@ -1,2 +1,2 @@
 # MultiPurposeMatchMaker
-This Is a Mini Project or DBMS Project For Our 5th Semester Academia
+Web App to find best companions in multiple aspect of life
