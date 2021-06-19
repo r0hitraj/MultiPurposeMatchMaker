@@ -2,7 +2,7 @@
 Web App to find best companions in multiple aspect of life
 
 
-MultiPurposeMatchMaker is a full featured Match Making App. You have to register in this app then You Have To make Your Profile Then Tou Have To Choose Your Purpose OF Matching ,then You Have find The Perfect buddy then Whola email will we send to that user regarding your match,with your profile info.
+MultiPurposeMatchMaker is a full featured Match Making App. You have to register in this app then You Have To make Your Profile Then Tou Have To Choose Your Purpose OF Matching ,then You Have find The Perfect buddy then Whola! email will we send to that user regarding your match,with your profile info.
 <h1>Getting Started</h1>
 <p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
 
@@ -33,7 +33,7 @@ MultiPurposeMatchMaker is a full featured Match Making App. You have to register
 
 <h2>Installing</h2>
 <pre>open terminal and type</pre>
-<code>git clone https://github.com/r0hitraj/wepoll.git</code><br><br>
+<code>git clone https://github.com/r0hitraj/MultiPurposeMatchMaker.git</code><br><br>
 
 <h4>or simply download using the url below</h4>
 <code>https://github.com/r0hitraj/MultiPurposeMatchMaker.git</code><br>
