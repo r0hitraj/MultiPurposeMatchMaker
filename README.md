@@ -63,8 +63,8 @@ MultiPurposeMatchMaker is a full featured Match Making App. You have to register
 <img src="ScreenShots/profile1.jpg" width="90%" />Profile Page
 <img src="ScreenShots/profile2.jpg" width="90%" />Profile Page
 <img src="ScreenShots/profile3.jpg" width="90%" />Profile Page
-<img src="ScreenShots/purpose1.jpg" width="90%" />Purpose Page1
-<img src="ScreenShots/purpose2.jpg" width="90%" />Purpose Page2
+<img src="ScreenShots/purspose1.jpg" width="90%" />Purpose Page1
+<img src="ScreenShots/purspose2.jpg" width="90%" />Purpose Page2
 <img src="ScreenShots/match1.jpg" width="90%" />Match For PurPose1
 <img src="ScreenShots/match2.jpg" width="90%" />Match For PurPose2
 
